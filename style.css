@@ -42,25 +42,60 @@
 .table-element {
   margin: 5px 0;
   display: flex;
-  justify-content: space-between;
+  gap: 10px;
 }
 .el-id {
+  min-width: 40px;
+  margin: 0 90px 0 32px;
 }
 .el-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  margin: 0 50px 0 30px;
 }
 .el-name {
+  min-width: 240px;
+  margin: 0 52px 0 0;
+  text-align: center;
 }
 .el-birth-date {
+  min-width: 170px;
 }
 .el-city {
+  width: 130px;
 }
 .el-country {
+  width: 200px;
 }
 .el-actions {
   display: flex;
   gap: 10px;
 }
 .el-edit {
+  width: 60px;
+  padding: 5px;
+  background: lightblue;
 }
 .el-delete {
+  width: 60px;
+  padding: 5px;
+  background: lightcoral;
+}
+@media only screen and (width<577px) {
+  .el-edit,
+  .decore-element,
+  .table-header,
+  .el-id,
+  .el-avatar,
+  .el-city,
+  .el-country {
+    display: none;
+  }
+
+  .el-name {
+    max-width: 100px;
+    min-width: 100px;
+    text-align: left;
+  }
 }

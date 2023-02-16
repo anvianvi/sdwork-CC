@@ -1,14 +1,14 @@
 
-// fetch('https://63998da716b0fdad77409a5e.mockapi.io/api/v1/hikers')
-//   .then((response) => {
-//     return response.json();
-//   })
-//   .then((data) => {
-//     const arrOPersons = data
-//   });
+arrOPersons.forEach((person) => {
+  const dateString = person.dateOfBirth
+  const date = new Date(dateString);
+  const year = date.getFullYear();
+  const month = (date.getMonth() + 1).toString().padStart(2, '0');
+  const day = date.getDate().toString().padStart(2, '0');
 
+  person.dateOfBirth = `${day}/${month}/${year}`;
+})
 
-console.log(arrOPersons)
 const main = document.getElementById('main')
 const atendersCount = document.getElementById('attendees-count')
 const tableContentContainer = document.getElementById('table-elements')
@@ -23,20 +23,31 @@ function renderTableContent() {
     tableContentContainer.innerHTML += `
     <div class="table-element">
     <div class="el-id">${person.id}</div>
-    <div class="el-avatar">my avatar</div>
-    <div class="el-name">first name</div>
-    <div class="el-birth-date">01.02.03</div>
-    <div class="el-city">krakow</div>
-    <div class="el-country">belarus</div>
+    <img src=${person.avatar} alt="person avatar" class="el-avatar">
+    <div class="el-name">${person.name}</div>
+    <div class="el-birth-date">${person.dateOfBirth}</div> 
+    <div class="el-city">${person.city}</div>
+    <div class="el-country">${person.country}</div>
     <div class="el-actions">
-      <div class="el-edit">edit</div>
-      <div class="el-delete">delite</div>
+      <button class="el-edit">edit</button>
+      <button class="el-delete" onclick="removeAttender(${person.id})">delite</button>
     </div>
   </div>`;
   })
+}
+
+function removeAttender(id) {
+  console.log(id)
+  arrOPersons = arrOPersons.filter((person) => person.id != id)
+  renderAtendersCount()
+  renderTableContent()
+  console.log(arrOPersons)
 
 }
 
-
 renderAtendersCount()
 renderTableContent()
+
+
+
+
