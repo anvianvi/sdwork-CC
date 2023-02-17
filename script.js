@@ -15,6 +15,23 @@ const tableContentContainer = document.getElementById('table-elements')
 function renderAtendersCount() {
   atendersCount.textContent = `Attendees (${arrOPersons.length})`
 }
+function sortDataByNameAZ() {
+  arrOPersons.sort((a, b) => a.name.localeCompare(b.name));
+}
+let sortState = [
+  nameOrderAZ = true,
+  cityOrderAZ = true,
+  countryOrderAZ = true,
+  dateOrderAZ = true
+]
+
+function toggleNameSortOrder() {
+  sortState.nameOrderAZ = !sortState.nameOrderAZ;
+  arrOPersons.sort((a, b) =>
+    sortState.nameOrderAZ ? a.name.localeCompare(b.name) : b.name.localeCompare(a.name)
+  );
+  renderTableContent();
+} 
 
 function renderTableContent() {
   while (tableContentContainer.firstChild) {
