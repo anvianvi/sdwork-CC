@@ -39,43 +39,39 @@ function renderTableHeader() {
   const tableHeaderContainer = document.getElementById('table-header');
 
   const thId = document.createElement('div');
-  thId.classList.add('th-id');
   thId.textContent = 'ID';
 
   const thAvatar = document.createElement('div');
-  thAvatar.classList.add('th-avatar');
-  thAvatar.textContent = 'Avatar';
 
   const thName = document.createElement('div');
-  thName.classList.add('th-name');
   thName.textContent = 'First name';
+  thName.className = 'th-sort-el';
   thName.onclick = () => {
     toggleSortOrder('name');
   };
 
   const thBirthDate = document.createElement('div');
-  thBirthDate.classList.add('th-birth-date');
   thBirthDate.textContent = 'Date of birth';
+  thBirthDate.className = 'th-sort-el';
   thBirthDate.onclick = () => {
     toggleSortOrder('dateOfBirth');
   };
 
   const thCity = document.createElement('div');
-  thCity.classList.add('th-city');
   thCity.textContent = 'City';
+  thCity.className = 'th-sort-el';
   thCity.onclick = () => {
     toggleSortOrder('city');
   };
 
   const thCountry = document.createElement('div');
-  thCountry.classList.add('th-country');
   thCountry.textContent = 'Country';
+  thCountry.className = 'th-sort-el';
   thCountry.onclick = () => {
     toggleSortOrder('country');
   };
 
   const thActions = document.createElement('div');
-  thActions.classList.add('th-actions');
   thActions.textContent = 'Actions';
 
   tableHeaderContainer.appendChild(thId);
@@ -98,7 +94,7 @@ function renderTableContent() {
 
     const idEl = document.createElement('div');
     idEl.className = 'el-id';
-    idEl.textContent = person.id;
+    idEl.textContent = `#${person.id}`;
     el.appendChild(idEl);
 
     const avatarEl = document.createElement('img');
