@@ -1,4 +1,3 @@
-
 arrOPersons.forEach((person) => {
   const dateString = person.dateOfBirth
   const date = new Date(dateString);
@@ -18,22 +17,65 @@ function renderAtendersCount() {
 }
 
 function renderTableContent() {
-  tableContentContainer.innerHTML = ''
+  while (tableContentContainer.firstChild) {
+    tableContentContainer.removeChild(tableContentContainer.firstChild);
+  }
+
   arrOPersons.forEach((person) => {
-    tableContentContainer.innerHTML += `
-    <div class="table-element">
-    <div class="el-id">${person.id}</div>
-    <img src=${person.avatar} alt="person avatar" class="el-avatar">
-    <div class="el-name">${person.name}</div>
-    <div class="el-birth-date">${person.dateOfBirth}</div> 
-    <div class="el-city">${person.city}</div>
-    <div class="el-country">${person.country}</div>
-    <div class="el-actions">
-      <button class="el-edit">edit</button>
-      <button class="el-delete" onclick="removeAttender(${person.id})">delite</button>
-    </div>
-  </div>`;
-  })
+    const el = document.createElement("div");
+    el.className = "table-element";
+
+    const idEl = document.createElement("div");
+    idEl.className = "el-id";
+    idEl.textContent = person.id;
+    el.appendChild(idEl);
+
+    const avatarEl = document.createElement("img");
+    avatarEl.className = "el-avatar";
+    avatarEl.src = person.avatar;
+    avatarEl.alt = "person avatar";
+    el.appendChild(avatarEl);
+
+    const nameEl = document.createElement("div");
+    nameEl.className = "el-name";
+    nameEl.textContent = person.name;
+    el.appendChild(nameEl);
+
+    const birthDateEl = document.createElement("div");
+    birthDateEl.className = "el-birth-date";
+    birthDateEl.textContent = person.dateOfBirth;
+    el.appendChild(birthDateEl);
+
+    const cityEl = document.createElement("div");
+    cityEl.className = "el-city";
+    cityEl.textContent = person.city;
+    el.appendChild(cityEl);
+
+    const countryEl = document.createElement("div");
+    countryEl.className = "el-country";
+    countryEl.textContent = person.country;
+    el.appendChild(countryEl);
+
+    const actionsEl = document.createElement("div");
+    actionsEl.className = "el-actions";
+
+    const editButtonEl = document.createElement("button");
+    editButtonEl.className = "el-edit";
+    editButtonEl.textContent = "edit";
+    actionsEl.appendChild(editButtonEl);
+
+    const deleteButtonEl = document.createElement("button");
+    deleteButtonEl.className = "el-delete";
+    deleteButtonEl.textContent = "delete";
+    deleteButtonEl.onclick = function () {
+      removeAttender(person.id);
+    };
+    actionsEl.appendChild(deleteButtonEl);
+
+    el.appendChild(actionsEl);
+
+    tableContentContainer.appendChild(el);
+  });
 }
 
 function removeAttender(id) {
@@ -47,7 +89,3 @@ function removeAttender(id) {
 
 renderAtendersCount()
 renderTableContent()
-
-
-
-
