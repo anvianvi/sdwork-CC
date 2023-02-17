@@ -79,12 +79,14 @@ function renderTableContent() {
 }
 
 function removeAttender(id) {
-  console.log(id)
-  arrOPersons = arrOPersons.filter((person) => person.id != id)
-  renderAtendersCount()
-  renderTableContent()
-  console.log(arrOPersons)
+  const confirmed = confirm("Are you sure you want to delete this attender?");
 
+  if (confirmed) {
+    arrOPersons = arrOPersons.filter((person) => person.id != id);
+    renderAtendersCount();
+    renderTableContent();
+    console.log(arrOPersons);
+  }
 }
 
 renderAtendersCount()
