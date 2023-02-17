@@ -1,4 +1,4 @@
-let arrOPersons = [
+export let arrOPersons = [
   {
     dateOfBirth: "1995-02-16T10:44:08.597Z",
     name: "Mr. Conrad Lowe",
