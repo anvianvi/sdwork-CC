@@ -1,6 +1,7 @@
 import { arrOPersons } from './data-example.js';
+let arrOPersonsLocal = arrOPersons
 
-arrOPersons.forEach((person) => {
+arrOPersonsLocal.forEach((person) => {
   const dateString = person.dateOfBirth
   const date = new Date(dateString);
   const year = date.getFullYear();
@@ -15,23 +16,24 @@ const atendersCount = document.getElementById('attendees-count')
 const tableContentContainer = document.getElementById('table-elements')
 
 function renderAtendersCount() {
-  atendersCount.textContent = `Attendees (${arrOPersons.length})`
+  atendersCount.textContent = `Attendees (${arrOPersonsLocal.length})`
 }
 
 const sortState = {
-  nameOrderAZ: true,
-  cityOrderAZ: true,
-  countryOrderAZ: true,
-  dateOrderAZ: true
+  name: true,
+  city: true,
+  country: true,
+  dateOfBirth: true
 }
 
-function toggleNameSortOrder(fild) {
-  sortState.fild = !sortState.fild;
-  arrOPersons.sort((a, b) =>
-    sortState.fild ? a.name.localeCompare(b.name) : b.name.localeCompare(a.name)
+function toggleSortOrder(property) {
+  sortState[property] = !sortState[property];
+  arrOPersonsLocal.sort((a, b) =>
+    sortState[property] ? a[property].localeCompare(b[property]) : b[property].localeCompare(a[property])
   );
   renderTableContent();
 }
+
 
 function renderTableHeader() {
   const tableHeaderContainer = document.getElementById('table-header');
@@ -47,18 +49,30 @@ function renderTableHeader() {
   const thName = document.createElement('div');
   thName.classList.add('th-name');
   thName.textContent = 'First name';
+  thName.onclick = () => {
+    toggleSortOrder('name');
+  };
 
   const thBirthDate = document.createElement('div');
   thBirthDate.classList.add('th-birth-date');
   thBirthDate.textContent = 'Date of birth';
+  thBirthDate.onclick = () => {
+    toggleSortOrder('dateOfBirth');
+  };
 
   const thCity = document.createElement('div');
   thCity.classList.add('th-city');
   thCity.textContent = 'City';
+  thCity.onclick = () => {
+    toggleSortOrder('city');
+  };
 
   const thCountry = document.createElement('div');
   thCountry.classList.add('th-country');
   thCountry.textContent = 'Country';
+  thCountry.onclick = () => {
+    toggleSortOrder('country');
+  };
 
   const thActions = document.createElement('div');
   thActions.classList.add('th-actions');
@@ -78,7 +92,7 @@ function renderTableContent() {
     tableContentContainer.removeChild(tableContentContainer.firstChild);
   }
 
-  arrOPersons.forEach((person) => {
+  arrOPersonsLocal.forEach((person) => {
     const el = document.createElement('div');
     el.className = 'table-element';
 
@@ -124,7 +138,7 @@ function renderTableContent() {
     const deleteButtonEl = document.createElement('button');
     deleteButtonEl.className = 'el-delete';
     deleteButtonEl.textContent = 'delete';
-    deleteButtonEl.onclick = function () {
+    deleteButtonEl.onclick = () => {
       removeAttender(person.id);
     };
     actionsEl.appendChild(deleteButtonEl);
@@ -139,12 +153,13 @@ function removeAttender(id) {
   const confirmed = confirm('Are you sure you want to delete this attender?');
 
   if (confirmed) {
-    arrOPersons = arrOPersons.filter((person) => person.id != id);
+    arrOPersonsLocal = arrOPersonsLocal.filter((person) => person.id != id);
     renderAtendersCount();
     renderTableContent();
-    console.log(arrOPersons);
+    console.log(arrOPersonsLocal);
   }
 }
 
 renderAtendersCount()
+renderTableHeader()
 renderTableContent()
