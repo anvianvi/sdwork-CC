@@ -1,7 +1,7 @@
-import { arrOPersons } from './data-example.js';
-let arrOPersonsLocal = arrOPersons
+import { arrOfPersons } from './data-example.js';
+let localArrOfPersons = arrOfPersons
 
-arrOPersonsLocal.forEach((person) => {
+localArrOfPersons.forEach((person) => {
   const dateString = person.dateOfBirth
   const date = new Date(dateString);
   const year = date.getFullYear();
@@ -11,12 +11,11 @@ arrOPersonsLocal.forEach((person) => {
   person.dateOfBirth = `${day}/${month}/${year}`;
 })
 
-const main = document.getElementById('main')
 const atendersCount = document.getElementById('attendees-count')
 const tableContentContainer = document.getElementById('table-elements')
 
 function renderAtendersCount() {
-  atendersCount.textContent = `Attendees (${arrOPersonsLocal.length})`
+  atendersCount.textContent = `Attendees (${localArrOfPersons.length})`
 }
 
 const sortState = {
@@ -28,7 +27,7 @@ const sortState = {
 
 function toggleSortOrder(property) {
   sortState[property] = !sortState[property];
-  arrOPersonsLocal.sort((a, b) =>
+  localArrOfPersons.sort((a, b) =>
     sortState[property] ? a[property].localeCompare(b[property]) : b[property].localeCompare(a[property])
   );
   renderTableContent();
@@ -82,13 +81,88 @@ function renderTableHeader() {
   tableHeaderContainer.appendChild(thCountry);
   tableHeaderContainer.appendChild(thActions);
 }
+let currentPage = 1;
+let totalPages = Math.ceil(localArrOfPersons.length / 10)
+
+function renderPagination() {
+  const paginationContainer = document.getElementById('pagination')
+
+  paginationContainer.innerHTML = '';
+
+  const toStartButton = document.createElement('button');
+  toStartButton.classList.add('paginationButton')
+  toStartButton.textContent = '<<';
+  toStartButton.disabled = currentPage === 1;
+  toStartButton.addEventListener('click', () => {
+    if (currentPage > 1) {
+      currentPage = 1
+      renderPagination();
+    }
+  });
+  paginationContainer.appendChild(toStartButton);
+
+  const prevButton = document.createElement('button');
+  prevButton.classList.add('paginationButton')
+  prevButton.textContent = '<';
+  prevButton.disabled = currentPage === 1;
+  prevButton.addEventListener('click', () => {
+    if (currentPage > 1) {
+      currentPage -= 1
+      renderPagination();
+    }
+  });
+  paginationContainer.appendChild(prevButton);
+
+  for (let i = 1; i <= totalPages; i++) {
+    const pageButton = document.createElement('button');
+    pageButton.classList.add('paginationButton')
+    pageButton.textContent = i;
+    pageButton.disabled = i === currentPage;
+    i === currentPage ? pageButton.classList.add('currentPage') : null
+    pageButton.addEventListener('click', () => {
+      currentPage = i
+      renderPagination();
+    });
+    paginationContainer.appendChild(pageButton);
+  }
+
+  const nextButton = document.createElement('button');
+  nextButton.classList.add('paginationButton')
+  nextButton.textContent = '>';
+  nextButton.disabled = currentPage === totalPages;
+  nextButton.addEventListener('click', () => {
+    if (currentPage < totalPages) {
+      currentPage += 1
+      renderPagination();
+    }
+  });
+  paginationContainer.appendChild(nextButton);
+
+  const gotoEndButton = document.createElement('button');
+  gotoEndButton.classList.add('paginationButton')
+  gotoEndButton.textContent = '>>';
+  gotoEndButton.disabled = currentPage === 1;
+  gotoEndButton.addEventListener('click', () => {
+    if (currentPage > 1) {
+      currentPage = totalPages
+      renderPagination();
+    }
+  });
+  paginationContainer.appendChild(gotoEndButton);
+
+  renderTableContent()
+}
 
 function renderTableContent() {
   while (tableContentContainer.firstChild) {
     tableContentContainer.removeChild(tableContentContainer.firstChild);
   }
 
-  arrOPersonsLocal.forEach((person) => {
+  const startIndex = (currentPage - 1) * 10;
+  const endIndex = currentPage * 10;
+  const arrOfPersonsToRender = localArrOfPersons.slice(startIndex, endIndex)
+
+  arrOfPersonsToRender.forEach((person) => {
     const el = document.createElement('div');
     el.className = 'table-element';
 
@@ -149,13 +223,14 @@ function removeAttender(id) {
   const confirmed = confirm('Are you sure you want to delete this attender?');
 
   if (confirmed) {
-    arrOPersonsLocal = arrOPersonsLocal.filter((person) => person.id != id);
+    localArrOfPersons = localArrOfPersons.filter((person) => person.id != id);
     renderAtendersCount();
     renderTableContent();
-    console.log(arrOPersonsLocal);
+    console.log(localArrOfPersons);
   }
 }
 
 renderAtendersCount()
+renderPagination()
 renderTableHeader()
 renderTableContent()

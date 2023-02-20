@@ -6,6 +6,9 @@
 .body {
   background: #ffffff;
   padding: 0 15px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
 }
 .header {
   height: 180px;
@@ -110,4 +113,25 @@
     min-width: 100px;
     text-align: left;
   }
+}
+.table-elements {
+  min-height: 580px;
+}
+.pagination {
+  width: fit-content;
+  margin: 0 auto;
+}
+.paginationButton {
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  background: #ffffff;
+  outline: 0;
+  border: 0;
+  cursor: pointer;
+}
+
+.currentPage {
+  color: black;
+  background: #d63d00;
 }
