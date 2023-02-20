@@ -1,5 +1,12 @@
 import { arrOfPersons } from './data-example.js';
-let localArrOfPersons = arrOfPersons
+
+async function fetchData(url) {
+  const response = await fetch(url);
+  const data = await response.json();
+  return data;
+}
+
+const localArrOfPersons = await fetchData('https://63998da716b0fdad77409a5e.mockapi.io/api/v1/hikers') || arrOfPersons;
 
 localArrOfPersons.forEach((person) => {
   const dateString = person.dateOfBirth
@@ -230,7 +237,7 @@ function removeAttender(id) {
   }
 }
 
-renderAtendersCount()
-renderPagination()
 renderTableHeader()
+renderAtendersCount()
 renderTableContent()
+renderPagination()
