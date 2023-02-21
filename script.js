@@ -6,7 +6,7 @@ async function fetchData(url) {
   return data;
 }
 
-const localArrOfPersons = await fetchData('https://63998da716b0fdad77409a5e.mockapi.io/api/v1/hikers') || arrOfPersons;
+let localArrOfPersons = await fetchData('https://63998da716b0fdad77409a5e.mockapi.io/api/v1/hikers') || arrOfPersons;
 
 localArrOfPersons.forEach((person) => {
   const dateString = person.dateOfBirth
@@ -89,10 +89,14 @@ function renderTableHeader() {
   tableHeaderContainer.appendChild(thActions);
 }
 let currentPage = 1;
-let totalPages = Math.ceil(localArrOfPersons.length / 10)
+let totalPages = 3
 
 function renderPagination() {
   const paginationContainer = document.getElementById('pagination')
+
+  totalPages = Math.ceil(localArrOfPersons.length / 10)
+
+  if (currentPage > totalPages) currentPage = totalPages;
 
   paginationContainer.innerHTML = '';
 
@@ -208,13 +212,11 @@ function renderTableContent() {
     actionsEl.className = 'el-actions';
 
     const editButtonEl = document.createElement('button');
-    editButtonEl.className = 'el-edit';
-    editButtonEl.textContent = 'edit';
+    editButtonEl.className = 'el-btn el-edit';
     actionsEl.appendChild(editButtonEl);
 
     const deleteButtonEl = document.createElement('button');
-    deleteButtonEl.className = 'el-delete';
-    deleteButtonEl.textContent = 'delete';
+    deleteButtonEl.className = 'el-btn el-delete';
     deleteButtonEl.onclick = () => {
       removeAttender(person.id);
     };
@@ -232,8 +234,9 @@ function removeAttender(id) {
   if (confirmed) {
     localArrOfPersons = localArrOfPersons.filter((person) => person.id != id);
     renderAtendersCount();
+    renderPagination()
+
     renderTableContent();
-    console.log(localArrOfPersons);
   }
 }
 

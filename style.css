@@ -87,15 +87,19 @@
   display: flex;
   gap: 10px;
 }
+.el-btn {
+  width: 40px;
+  height: 40px;
+  border: 0;
+  outline: 0;
+  background-color: #ffffff;
+  cursor: pointer;
+}
 .el-edit {
-  width: 60px;
-  padding: 5px;
-  background: lightblue;
+  background: url('./assets/edit-icon.png') center center no-repeat;
 }
 .el-delete {
-  width: 60px;
-  padding: 5px;
-  background: lightcoral;
+  background: url('./assets/del-icon.png') center center no-repeat;
 }
 @media only screen and (width<577px) {
   .el-edit,
