@@ -3,56 +3,50 @@
   margin: 0;
   padding: 0;
 }
-.body {
-  background: #ffffff;
+
+body {
+  background-color: #fff;
   padding: 0 15px;
-  font-family: 'Roboto';
+  font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-weight: 400;
 }
+
 .header {
   height: 180px;
   padding: 40px 10px 0 10px;
   overflow: hidden;
 }
+
 .content-wrapper {
   max-width: 1300px;
-  position: relative;
   margin: 0 auto;
+  position: relative;
 }
+
 .logo {
 }
+
 .decore-element {
   position: absolute;
   top: -38px;
   right: -69px;
 }
+
 .main {
-  background: #ffffff;
+  background-color: #fff;
   max-width: 1300px;
-  position: relative;
   margin: 0 auto;
+  position: relative;
 }
+
 .table-wrapper {
 }
-.table-header {
-  border-bottom: 2px solid #c8cdd9;
-  padding: 10px;
-  background: #f1f4f8;
-  display: grid;
-  grid-template-columns:
-    minmax(40px, 1.5fr)
-    minmax(40px, 1.5fr)
-    minmax(100px, 11fr)
-    7.4fr
-    7.4fr
-    7.4fr
-    minmax(80px, 4.8fr);
-}
+
+.table-header,
 .table-element {
   border-bottom: 2px solid #c8cdd9;
-  padding: 10px 0;
-  align-items: center;
+  padding: 10px;
   display: grid;
   grid-template-columns:
     minmax(40px, 1.5fr)
@@ -63,45 +57,68 @@
     7.4fr
     minmax(80px, 4.8fr);
 }
+
+.table-header {
+  background-color: #f1f4f8;
+}
+
 .th-sort-el {
   cursor: pointer;
   user-select: none;
 }
+
 .el-id {
 }
+
 .el-avatar {
   width: 32px;
   height: 32px;
   border-radius: 50%;
 }
+
 .el-name {
   padding-left: 5px;
+  max-width: 100px;
+  min-width: 100px;
+  text-align: left;
 }
+
 .el-birth-date {
 }
+
 .el-city {
 }
+
 .el-country {
 }
+
 .el-actions {
   display: flex;
   gap: 10px;
 }
+
 .el-btn {
   width: 40px;
   height: 40px;
   border: 0;
   outline: 0;
-  background-color: #ffffff;
+  background-color: #fff;
   cursor: pointer;
 }
+
 .el-edit {
-  background: url('./assets/edit-icon.png') center center no-repeat;
+  background-image: url('./assets/edit-icon.png');
+  background-repeat: no-repeat;
+  background-position: center center;
 }
+
 .el-delete {
-  background: url('./assets/del-icon.png') center center no-repeat;
+  background-image: url('./assets/del-icon.png');
+  background-repeat: no-repeat;
+  background-position: center center;
 }
-@media only screen and (width<577px) {
+
+@media only screen and (max-width: 576px) {
   .el-edit,
   .decore-element,
   .table-header,
@@ -118,18 +135,21 @@
     text-align: left;
   }
 }
+
 .table-elements {
   min-height: 580px;
 }
+
 .pagination {
   width: fit-content;
   margin: 0 auto;
 }
+
 .paginationButton {
   width: 32px;
   height: 32px;
   border-radius: 4px;
-  background: #ffffff;
+  background-color: #fff;
   outline: 0;
   border: 0;
   cursor: pointer;
@@ -137,5 +157,27 @@
 
 .currentPage {
   color: black;
-  background: #d63d00;
+  background-color: #d63d00;
+}
+
+.editable {
+  resize: none;
+  width: 95%;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  color: black;
+  border: 1px solid #8995b3;
+  border-radius: 4px;
+}
+.editable:disabled {
+  outline: 0;
+  border: 0;
+  background: #ffffff;
+}
+.in-edit {
+  background: #fff6e3;
+}
+.in-delite {
+  background: lightcoral;
 }
