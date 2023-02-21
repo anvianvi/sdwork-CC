@@ -176,6 +176,7 @@ function renderTableContent() {
   arrOfPersonsToRender.forEach((person) => {
     const el = document.createElement('div');
     el.className = 'table-element';
+    el.id = `preson-${person.id}`
 
     const idEl = document.createElement('div');
     idEl.className = 'el-id';
@@ -188,24 +189,28 @@ function renderTableContent() {
     avatarEl.alt = 'person avatar';
     el.appendChild(avatarEl);
 
-    const nameEl = document.createElement('div');
-    nameEl.className = 'el-name';
-    nameEl.textContent = person.name;
+    const nameEl = document.createElement('textarea');
+    nameEl.className = 'el-name editable';
+    nameEl.disabled = true
+    nameEl.value = person.name
     el.appendChild(nameEl);
 
-    const birthDateEl = document.createElement('div');
-    birthDateEl.className = 'el-birth-date';
-    birthDateEl.textContent = person.dateOfBirth;
+    const birthDateEl = document.createElement('textarea');
+    birthDateEl.className = 'el-birth-date editable';
+    birthDateEl.disabled = true
+    birthDateEl.value = person.dateOfBirth
     el.appendChild(birthDateEl);
 
-    const cityEl = document.createElement('div');
-    cityEl.className = 'el-city';
-    cityEl.textContent = person.city;
+    const cityEl = document.createElement('textarea');
+    cityEl.className = 'el-city editable';
+    cityEl.disabled = true
+    cityEl.value = person.city
     el.appendChild(cityEl);
 
-    const countryEl = document.createElement('div');
-    countryEl.className = 'el-country';
-    countryEl.textContent = person.country;
+    const countryEl = document.createElement('textarea');
+    countryEl.className = 'el-country editable';
+    countryEl.disabled = true
+    countryEl.value = person.country
     el.appendChild(countryEl);
 
     const actionsEl = document.createElement('div');
@@ -213,6 +218,9 @@ function renderTableContent() {
 
     const editButtonEl = document.createElement('button');
     editButtonEl.className = 'el-btn el-edit';
+    editButtonEl.onclick = () => {
+      togleEdit(person.id);
+    };
     actionsEl.appendChild(editButtonEl);
 
     const deleteButtonEl = document.createElement('button');
@@ -227,15 +235,19 @@ function renderTableContent() {
     tableContentContainer.appendChild(el);
   });
 }
+function togleEdit(id) {
+  const targetLine = document.getElementById(`preson-${id}`)
+  targetLine.classList.toggle('in-edit')
+  const editebleFields = targetLine.querySelectorAll('textarea');
+  editebleFields.forEach(field => field.disabled = !field.disabled)
 
+}
 function removeAttender(id) {
   const confirmed = confirm('Are you sure you want to delete this attender?');
-
   if (confirmed) {
     localArrOfPersons = localArrOfPersons.filter((person) => person.id != id);
     renderAtendersCount();
     renderPagination()
-
     renderTableContent();
   }
 }
