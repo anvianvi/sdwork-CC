@@ -40,7 +40,6 @@ function toggleSortOrder(property) {
   renderTableContent();
 }
 
-
 function renderTableHeader() {
   const tableHeaderContainer = document.getElementById('table-header');
 
@@ -50,7 +49,7 @@ function renderTableHeader() {
   const thAvatar = document.createElement('div');
 
   const thName = document.createElement('div');
-  thName.textContent = 'First name';
+  thName.textContent = 'Name';
   thName.className = 'th-sort-el';
   thName.onclick = () => {
     toggleSortOrder('name');
@@ -78,7 +77,6 @@ function renderTableHeader() {
   };
 
   const thActions = document.createElement('div');
-  thActions.textContent = 'Actions';
 
   tableHeaderContainer.appendChild(thId);
   tableHeaderContainer.appendChild(thAvatar);
