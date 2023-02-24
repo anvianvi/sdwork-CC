@@ -33,28 +33,32 @@ export function renderTableContent() {
     avatarEl.alt = 'person avatar';
     el.appendChild(avatarEl);
 
-    const nameEl = document.createElement('textarea');
+    const nameEl = document.createElement('input');
     nameEl.className = 'el-name editable';
-    nameEl.disabled = true
-    nameEl.value = person.name
+    nameEl.disabled = true;
+    nameEl.type = 'text';
+    nameEl.value = person.name;
     el.appendChild(nameEl);
 
-    const birthDateEl = document.createElement('textarea');
+    const birthDateEl = document.createElement('input');
     birthDateEl.className = 'el-birth-date editable';
-    birthDateEl.disabled = true
-    birthDateEl.value = person.dateOfBirth
+    birthDateEl.disabled = true;
+    birthDateEl.type = 'text';
+    birthDateEl.value = person.dateOfBirth;
     el.appendChild(birthDateEl);
 
-    const cityEl = document.createElement('textarea');
+    const cityEl = document.createElement('input');
     cityEl.className = 'el-city editable';
-    cityEl.disabled = true
-    cityEl.value = person.city
+    cityEl.disabled = true;
+    cityEl.type = 'text';
+    cityEl.value = person.city;
     el.appendChild(cityEl);
 
-    const countryEl = document.createElement('textarea');
+    const countryEl = document.createElement('input');
     countryEl.className = 'el-country editable';
-    countryEl.disabled = true
-    countryEl.value = person.country
+    countryEl.disabled = true;
+    countryEl.type = 'text';
+    countryEl.value = person.country;
     el.appendChild(countryEl);
 
     const actionsEl = document.createElement('div');
