@@ -10,6 +10,8 @@
   font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
 }
 .header {
   max-width: 1300px;
@@ -73,6 +75,9 @@
 }
 .table-element {
   position: relative;
+  display: grid;
+  place-items: center;
+  padding: 3px 0;
 }
 
 .th-sort-el {
@@ -94,6 +99,7 @@
   font-size: 14px;
   line-height: 20px;
 }
+
 
 .el-avatar {
   width: 32px;
@@ -119,6 +125,7 @@
   outline: 0;
   background-color: #fff;
   cursor: pointer;
+  background-color: transparent;
 }
 
 .el-edit {
@@ -152,7 +159,7 @@
 }
 
 .table-elements {
-  min-height: 580px;
+  min-height: 510px;
 }
 
 .pagination {
@@ -176,11 +183,14 @@
 }
 
 .editable {
+  height: 25px;
   resize: none;
   width: 95%;
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
   color: black;
   border: 1px solid #8995b3;
   border-radius: 4px;
