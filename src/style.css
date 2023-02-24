@@ -98,6 +98,7 @@
   font-weight: 400;
   font-size: 14px;
   line-height: 20px;
+  background: #fff  ;
 }
 .el-id::before {
   content: '';
@@ -127,6 +128,8 @@
 .el-actions {
   display: flex;
   gap: 10px;
+  position: relative;
+  z-index: 1;
 }
 
 .el-btn {
@@ -214,6 +217,23 @@
 .in-edit {
   background: #fff6e3;
 }
-.in-delite {
-  background: lightcoral;
+.canselEditingBlock {
+  position: absolute;
+  z-index: 2;
+  top: 0px;
+  left: 0px;
+  height: 40px;
+  background: #fff6e3;
+  display: flex;
+  gap: 11px;
+}
+.saveChanges {
+  background-image: url('./assets/confirm-icon.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.declineChanges {
+  background-image: url('./assets/cansel-icon.png');
+  background-repeat: no-repeat;
+  background-position: center center;
 }

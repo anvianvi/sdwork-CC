@@ -17,7 +17,7 @@ export function renderTableContent() {
   arrOfPersonsToRender.forEach((person) => {
     const el = document.createElement('div');
     el.className = 'table-element';
-    el.id = `preson-${person.id}`
+    el.id = `person-${person.id}`
 
     const idEl = document.createElement('div');
     idEl.className = 'el-id';
