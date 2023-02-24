@@ -1,4 +1,6 @@
 import { arrOfPersons } from './data-example.js';
+import './style.css';
+// import template from './template.html';
 
 async function fetchData(url) {
   const response = await fetch(url);
@@ -44,8 +46,6 @@ function renderTableHeader() {
   const tableHeaderContainer = document.getElementById('table-header');
 
   const thId = document.createElement('div');
-  thId.textContent = 'ID';
-
   const thAvatar = document.createElement('div');
 
   const thName = document.createElement('div');
@@ -180,6 +180,9 @@ function renderTableContent() {
     idEl.className = 'el-id';
     idEl.textContent = `#${person.id}`;
     el.appendChild(idEl);
+
+    const elBlankId = document.createElement('div');
+    el.appendChild(elBlankId)
 
     const avatarEl = document.createElement('img');
     avatarEl.className = 'el-avatar';

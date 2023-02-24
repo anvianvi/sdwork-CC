@@ -51,7 +51,6 @@
 .table-header,
 .table-element {
   border-bottom: 2px solid #c8cdd9;
-  padding: 10px;
   display: grid;
   grid-template-columns:
     minmax(40px, 1.5fr)
@@ -65,7 +64,15 @@
 
 .table-header {
   background-color: #f1f4f8;
+  padding: 14px 0 12px 15px;
   text-transform: uppercase;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  color: #555d71;
+}
+.table-element {
+  position: relative;
 }
 
 .th-sort-el {
@@ -74,6 +81,18 @@
 }
 
 .el-id {
+  position: absolute;
+  top: 8px;
+  left: -18px;
+  width: 45px;
+  height: 31px;
+  border: 1px solid #e3e6ef;
+  border-radius: 7px;
+  display: grid;
+  place-items: center;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
 }
 
 .el-avatar {
@@ -81,20 +100,10 @@
   height: 32px;
   border-radius: 50%;
 }
-
-.el-name {
-  padding-left: 5px;
-  max-width: 100px;
-  min-width: 100px;
-  text-align: left;
-}
-
 .el-birth-date {
 }
-
 .el-city {
 }
-
 .el-country {
 }
 
