@@ -22,8 +22,6 @@ localArrOfPersons.forEach((person) => {
   person.dateOfBirth = `${day}/${month}/${year}`;
 })
 
-export let currentPage = 1;
-
 renderTableHeader()
 renderAtendersCount()
 renderTableContent()

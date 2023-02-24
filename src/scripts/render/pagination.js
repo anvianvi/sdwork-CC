@@ -1,6 +1,8 @@
 import { renderTableContent } from "./table-content";
-import { currentPage } from "../../app";
+// import { currentPage } from "../../app";
 import { localArrOfPersons } from "../../app";
+
+export let currentPage = 1;
 
 export function renderPagination() {
   let totalPages = 3

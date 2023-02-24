@@ -1,6 +1,6 @@
 import { localArrOfPersons } from "../../app";
 import { togleEdit } from "../secondary-fynctions/edit-button";
-import { currentPage } from "../../app";
+import { currentPage } from "./pagination";
 import { removeAttender } from "../secondary-fynctions/delite-button";
 
 export function renderTableContent() {
