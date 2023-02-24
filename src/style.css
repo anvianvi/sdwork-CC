@@ -99,7 +99,18 @@
   font-size: 14px;
   line-height: 20px;
 }
-
+.el-id::before {
+  content: '';
+  width: 0;
+  height: 0;
+  border-left: 14px solid transparent;
+  border-bottom: 11px solid #e3e6ef;
+  margin-right: 5px;
+  display: inline-block;
+  position: absolute;
+  top: -11px;
+  left: 4px;
+}
 
 .el-avatar {
   width: 32px;
