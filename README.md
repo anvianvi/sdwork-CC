@@ -1,3 +1,5 @@
+[Check deploy](https://anvianvi.github.io/sdwork-CC/)
+
 # SD Worx Front-End Challenge
 
 Your challenge this evening is to prepare a website that will present a datatable using the following [API](https://63998da716b0fdad77409a5e.mockapi.io/api/v1/hikers).
@@ -13,20 +15,21 @@ The pages must both support desktop and mobile versions​
 ## Getting started
 
 - Create or log into your existing GitHub account.​
-    - If your GitHub account uses a nickname, make sure to tell us who you are!​
-- Fork this repo; That would be this button: 
-    - ![image](https://user-images.githubusercontent.com/544444/218042781-cead3c9a-5d3e-41b7-a4c0-0a94b67b992f.png)
+  - If your GitHub account uses a nickname, make sure to tell us who you are!​
+- Fork this repo; That would be this button:
+
+  - ![image](https://user-images.githubusercontent.com/544444/218042781-cead3c9a-5d3e-41b7-a4c0-0a94b67b992f.png)
 
 - If you have git:​
-    - Clone your fork to your local pc​
-    - Once you are finished:​
-        - git add -A​
-        - git commit -m  "SD Worx Challenge! 🚀"​
-        - git push origin​
+  - Clone your fork to your local pc​
+  - Once you are finished:​
+    - git add -A​
+    - git commit -m "SD Worx Challenge! 🚀"​
+    - git push origin​
 - ...Or if you don't have git, you can use GitHub's built-in uploader on your fork's page​
-    - ![image](https://user-images.githubusercontent.com/544444/218043019-addd7bb7-405b-4b2a-9e30-bd3f54b696b0.png)
+  - ![image](https://user-images.githubusercontent.com/544444/218043019-addd7bb7-405b-4b2a-9e30-bd3f54b696b0.png)
 - Create a Pull Request of your fork to the main repository
-    - ![image](https://user-images.githubusercontent.com/544444/218092638-b1c7de0e-cf01-4d26-9639-cd4a6be42037.png)
+  - ![image](https://user-images.githubusercontent.com/544444/218092638-b1c7de0e-cf01-4d26-9639-cd4a6be42037.png)
 - Fill in the Pull Request template
 - Label your PR with the correct country and category. (e.g. Belgium and Professional)
 - Submit your PR
@@ -66,8 +69,7 @@ We will judge according to the following criteria:
 - HTML/CSS/code organization​
 - How you present your work​
 
-
-# Tips 
+# Tips
 
 You don't have much time, first try to provide functionality, and then if you have time refine the designs.​
 

@@ -1,0 +1,283 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.body {
+  position: relative;
+  background-color: #f8f9fb;
+  padding: 0 15px;
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+}
+.header {
+  max-width: 1300px;
+  height: 180px;
+  padding: 40px 10px 0 10px;
+  margin: 0 auto;
+}
+.logo {
+  margin: 0 0 0 -4px;
+}
+.decore-element {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.main {
+  background-color: #fff;
+  max-width: 1300px;
+  margin: 0 auto;
+  position: relative;
+  padding: 35px 24px;
+  border: 1px solid #e3e6ef;
+  box-shadow: 0px 0px 4px rgba(48, 54, 66, 0.11),
+    0px 2px 2px rgba(48, 54, 66, 0.1);
+  border-radius: 4px;
+}
+.total-count {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+  color: #303642;
+  margin: 0 0 40px;
+}
+.table-wrapper {
+}
+
+.table-header,
+.table-element {
+  border-bottom: 2px solid #c8cdd9;
+  display: grid;
+  grid-template-columns:
+    minmax(40px, 1.5fr)
+    minmax(40px, 1.5fr)
+    minmax(100px, 11fr)
+    7.4fr
+    7.4fr
+    7.4fr
+    minmax(80px, 4.8fr);
+}
+
+.table-header {
+  background-color: #f1f4f8;
+  padding: 14px 0 12px 15px;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  color: #555d71;
+}
+.table-element {
+  position: relative;
+  display: grid;
+  place-items: center;
+  padding: 3px 0;
+}
+
+.th-sort-el {
+  cursor: pointer;
+  user-select: none;
+}
+
+.el-id {
+  position: absolute;
+  top: 8px;
+  left: -18px;
+  width: 45px;
+  height: 31px;
+  border: 1px solid #e3e6ef;
+  border-radius: 7px;
+  display: grid;
+  place-items: center;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  background: #fff;
+}
+.el-id::before {
+  content: '';
+  width: 0;
+  height: 0;
+  border-left: 14px solid transparent;
+  border-bottom: 11px solid #e3e6ef;
+  margin-right: 5px;
+  display: inline-block;
+  position: absolute;
+  top: -11px;
+  left: 4px;
+}
+
+.el-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+.el-birth-date {
+}
+.el-city {
+}
+.el-country {
+}
+
+.el-actions {
+  display: flex;
+  gap: 10px;
+  position: relative;
+  z-index: 1;
+}
+
+.el-btn {
+  width: 40px;
+  height: 40px;
+  border: 0;
+  outline: 0;
+  background-color: #fff;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.el-edit {
+  background-image: url('./assets/edit-icon.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.el-delete {
+  background-image: url('./assets/del-icon.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.table-elements {
+  min-height: 510px;
+}
+
+.pagination {
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.paginationButton {
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  background-color: #fff;
+  outline: 0;
+  border: 0;
+  cursor: pointer;
+}
+
+.currentPage {
+  color: black;
+  background-color: #d63d00;
+}
+
+.editable {
+  height: 25px;
+  resize: none;
+  width: 95%;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: black;
+  border: 1px solid #8995b3;
+  border-radius: 4px;
+}
+.editable:disabled {
+  outline: 0;
+  border: 0;
+  background: #ffffff;
+}
+.in-edit {
+  background: #fff6e3;
+}
+.canselEditingBlock {
+  position: absolute;
+  z-index: 2;
+  top: 0px;
+  left: 0px;
+  height: 40px;
+  background: #fff6e3;
+  display: flex;
+  gap: 11px;
+}
+.saveChanges {
+  background-image: url('./assets/confirm-icon.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.declineChanges {
+  background-image: url('./assets/cansel-icon.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+@media (width < 576px) {
+  .decore-element,
+  .table-header,
+  .el-id,
+  .el-avatar,
+  .pagination,
+  .el-edit,
+  .el-delete {
+    display: none;
+  }
+
+  .logo {
+    height: 50px;
+  }
+  .header {
+    padding: 10px;
+    height: fit-content;
+  }
+  .main {
+    padding: 15px;
+  }
+  .total-count {
+    margin: 5px 0 20px 0;
+    font-size: 20px;
+  }
+
+  .el-actions:after {
+    content: '\2807';
+    font-size: 40px;
+    color: #555d71;
+  }
+  .table-element {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .editable {
+    width: fit-content;
+    margin: 0;
+  }
+  .el-name {
+    order: 1;
+    font-weight: 700;
+    width: 300px;
+  }
+  .el-birth-date {
+    order: 2;
+    margin-left: auto;
+    width: 100px;
+  }
+  .el-country {
+    order: 3;
+  }
+  .el-city {
+    order: 4;
+  }
+  .el-actions {
+    position: absolute;
+    right: -10px;
+    top: 10px;
+  }
+}
