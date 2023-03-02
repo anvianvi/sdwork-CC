@@ -63,6 +63,13 @@ export function renderTableContent() {
 
     const actionsEl = document.createElement('div');
     actionsEl.className = 'el-actions';
+    actionsEl.onclick = () => {
+      if (window.innerWidth <= 576) {
+        console.log('shoud work')
+      } else {
+        console.log('ignore work')
+      }
+    };
 
     const editButtonEl = document.createElement('button');
     editButtonEl.className = 'el-btn el-edit';

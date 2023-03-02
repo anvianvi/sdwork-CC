@@ -98,7 +98,7 @@
   font-weight: 400;
   font-size: 14px;
   line-height: 20px;
-  background: #fff  ;
+  background: #fff;
 }
 .el-id::before {
   content: '';
@@ -153,25 +153,6 @@
   background-repeat: no-repeat;
   background-position: center center;
 }
-
-@media only screen and (max-width: 576px) {
-  .el-edit,
-  .decore-element,
-  .table-header,
-  .el-id,
-  .el-avatar,
-  .el-city,
-  .el-country {
-    display: none;
-  }
-
-  .el-name {
-    max-width: 100px;
-    min-width: 100px;
-    text-align: left;
-  }
-}
-
 .table-elements {
   min-height: 510px;
 }
@@ -236,4 +217,67 @@
   background-image: url('./assets/cansel-icon.png');
   background-repeat: no-repeat;
   background-position: center center;
+}
+
+@media (width < 576px) {
+  .decore-element,
+  .table-header,
+  .el-id,
+  .el-avatar,
+  .pagination,
+  .el-edit,
+  .el-delete {
+    display: none;
+  }
+
+  .logo {
+    height: 50px;
+  }
+  .header {
+    padding: 10px;
+    height: fit-content;
+  }
+  .main {
+    padding: 15px;
+  }
+  .total-count {
+    margin: 5px 0 20px 0;
+    font-size: 20px;
+  }
+
+  .el-actions:after {
+    content: '\2807';
+    font-size: 40px;
+    color: #555d71;
+  }
+  .table-element {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .editable {
+    width: fit-content;
+    margin: 0;
+  }
+  .el-name {
+    order: 1;
+    font-weight: 700;
+    width: 300px;
+  }
+  .el-birth-date {
+    order: 2;
+    margin-left: auto;
+    width: 100px;
+  }
+  .el-country {
+    order: 3;
+  }
+  .el-city {
+    order: 4;
+  }
+  .el-actions {
+    position: absolute;
+    right: -10px;
+    top: 10px;
+  }
 }
